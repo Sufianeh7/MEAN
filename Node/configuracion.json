@@ -1,0 +1,5 @@
+{
+    "mongodb.url"     : "mongodb+srv://sufianeh8:ZrcShnLaHEJJflhD@cluster0.xhejdrs.mongodb.net/esquema-tienda?retryWrites=true&w=majority&appName=Cluster0",
+    "http.puerto"     : 7000,
+    "cors.origin"     : "http://localhost:4200"
+}

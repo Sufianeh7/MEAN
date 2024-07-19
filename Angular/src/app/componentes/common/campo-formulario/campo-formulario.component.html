@@ -1,0 +1,49 @@
+<div class="row">
+
+  <div class="col-sm-12 col-md-2 mt-1">
+      <label for="{{campo}}">{{label}}</label>
+  </div>
+  <div class="col-sm-12 col-md-10 mt-1">
+      <ng-content></ng-content>
+
+      @if(formulario.get(campo)?.dirty || formulario.get(campo)?.touched) {
+      <div>
+          @if(formulario.get(campo)?.hasError('required')){
+          <small class="text-danger">
+              {{label}} es un campo obligatorio.
+          </small>
+          }
+          @if(formulario.get(campo)?.hasError('email')){
+              <small class="text-danger">
+                  Correo electrónico incorrecto.
+              </small>
+          }
+          @if(formulario.get(campo)?.hasError('max')){
+              <small class="text-danger">
+                  Máximo.
+              </small>
+          }
+          @if(formulario.get(campo)?.hasError('min')){
+              <small class="text-danger">
+                  Mínimo.
+              </small>
+          }
+          @if(formulario.get(campo)?.hasError('maxLength')){
+              <small class="text-danger">
+                  Máximo.
+              </small>
+          }
+          @if(formulario.get(campo)?.hasError('minLength')){
+              <small class="text-danger">
+                  Mínimo.
+              </small>
+          }
+          @if(formulario.get(campo)?.hasError('pattern')){
+              <small class="text-danger">
+                  {{label}} no cumple el patrón especificado.
+              </small>
+          }
+      </div>
+      }
+  </div>
+</div>

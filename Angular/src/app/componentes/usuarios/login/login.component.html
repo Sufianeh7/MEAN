@@ -1,0 +1,61 @@
+<!-- HTML 5 -->
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="card card-primary">
+    <div class="card-header">Inicio de sesión</div>
+    <div class="card-body">
+
+    <form [formGroup]="formulario" class="form-horizontal" id="formulario">
+        <div class="form-group">
+        <label class="control-label col-xs-2 mb-3" for="login">Usuario</label>
+        <div class="col-xs-10 mb-3">
+            <input id="login" type="text" formControlName="login" class="form-control"/>
+            @if(formulario.get('login')?.dirty || formulario.get('login')?.touched) {
+                <div>
+                    @if(formulario.get('login')?.hasError('required')){
+                    <small class="text-danger">
+                        Campo obligatorio.
+                    </small>
+                    }
+                </div>
+                }
+        </div>
+        </div>
+        <div class="form-group">
+        <label class="control-label col-xs-2 mb-3" for="pw">Contraseña</label>
+        <div class="col-xs-10 mb-3">
+            <!--Si queremos el evento en el manejador lo pedimos con $event-->
+            <input id="pw" type="text" formControlName="password" class="form-control" (keyup.enter)="entrar()" />
+            @if(formulario.get('password')?.dirty || formulario.get('password')?.touched) {
+            <div>
+                @if(formulario.get('password')?.hasError('required')){
+                <small class="text-danger">
+                    Campo obligatorio.
+                </small>
+                }
+            </div>
+            }
+        </div>
+        </div>
+
+        @if(mostrarError){
+            <div class="alert alert-danger mt-3">Credenciales incorrectas</div>
+        }
+
+    </form>
+
+    <div class="text-center mt-3">
+      <!--
+        <input type="button" class="btn ms-1 btn-primary" style="width:110px" (click)="entrar()" value="Entrar" />
+        <input type="button" class="btn ms-1 btn-primary" style="width:110px" routerLink="/registro" value="Registrarse" />
+         -->
+        <button class="btn ms-1 border border-1 border-dark m-2" (click)="entrar()" value="Entrar">Entrar</button>
+        <button class="btn ms-1 btn-primary border border-1 border-dark m-2" routerLink="/registro" value="Registrarse" >Registrarse</button>
+    </div>
+
+    </div>
+</div>

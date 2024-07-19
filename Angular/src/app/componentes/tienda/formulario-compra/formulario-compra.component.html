@@ -1,0 +1,31 @@
+<h4 class="text-center mt-4">
+  Confirmación de la compra
+</h4>
+
+<!--
+<div *ngIf="mensaje" class="alert alert-success">{{mensaje}}</div>
+<div *ngIf="mensajeError" class="alert alert-danger">{{mensajeError}}</div>
+-->
+
+<form class="row" [formGroup]="formulario">
+
+  <app-campo-formulario [formulario]="formulario" label="Dirección de entrega" campo="direccionEntrega">
+    <input id="direccionEntrega" formControlName="direccionEntrega" class="form-control" />
+  </app-campo-formulario>
+
+  <app-campo-formulario [formulario]="formulario" label="Dirección de facturación" campo="direccionFacturacion">
+    <input id="direccionFacturacion" formControlName="direccionFacturacion" class="form-control" />
+  </app-campo-formulario>
+
+  <app-campo-formulario [formulario]="formulario" label="Forma de Pago" campo="formaPago">
+    <input id="formaPago" formControlName="formaPago" class="form-control" />
+  </app-campo-formulario>
+
+
+  <div class="text-center mt-4">
+    <input type="button" value="Confirmar" class="btn me-1 btn-primary" (click)="comprar()"/>
+    <input type="button" value="Cancelar" class="btn me-1 btn-danger"
+      [routerLink]="['/tienda', { outlets: { 'primary':'cesta', 'barra-derecha':null } }]" />
+  </div>
+
+</form>

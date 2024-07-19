@@ -1,0 +1,4 @@
+.invert:hover {
+  background-color: white !important;
+  color: black !important; /* El color predeterminado del botón primario */
+}

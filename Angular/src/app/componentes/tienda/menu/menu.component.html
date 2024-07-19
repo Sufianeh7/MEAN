@@ -1,0 +1,30 @@
+<div class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav">
+      <li class="nav-item active">
+          <!--
+          <a class="nav-link" routerLink="/tienda/perfil">[{{nombre}}]</a>
+      -->
+          <a class="nav-link" [routerLink]="['/tienda', { outlets: { 'primary':['perfil'], 'barra-derecha':['resumen'] }}]">[{{nombre}}]</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/tienda', { outlets: { 'primary':['catalogo'], 'barra-derecha':['resumen'] }}]">Catálogo</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/tienda', { outlets: { 'primary':['cesta'], 'barra-derecha':null }}]">Cesta</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" >Pedidos</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" >Facturas</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" (click)="logout()">Salir</a>
+      </li>
+  </ul>
+
+</div>
+
+
+
+

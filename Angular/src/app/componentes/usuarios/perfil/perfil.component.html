@@ -1,0 +1,77 @@
+<h3 class="text-center mt-3 mb-3">
+  Perfil
+</h3>
+
+<br />
+
+<form class="row" [formGroup]="formulario">
+
+  <app-campo-formulario [formulario]="formulario" label="Nombre" campo="nombre">
+    <input type="nombre" formControlName="nombre" class="form-control">
+  </app-campo-formulario>
+
+  <!--
+    Para cambiar el password debemos hacer una pantalla especifica para esa acción
+    <div class="col-sm-12 col-md-2 mt-1">
+        <label for="pw">Password</label>
+    </div>
+    <div class="col-sm-12 col-md-10 mt-1">
+        <input id="pw" formControlName="password" class="form-control"/>
+
+        <div *ngIf="(formulario.get('password')?.dirty || formulario.get('password')?.touched)">
+            <small class="text-danger"
+                *ngIf="formulario.get('password')?.hasError('required')">
+                Campo obligatorio.
+            </small>
+        </div>
+    </div>
+    -->
+
+
+  <!--Este campo no está unido al formulario porque está aqui haciendo bulto-->
+  <app-campo-formulario [formulario]="formulario" label="Nombre" campo="nombre">
+    <select class="form-control">
+      <option>ES</option>
+      <option>EN</option>
+    </select>
+  </app-campo-formulario>
+
+  <app-campo-formulario [formulario]="formulario" label="CorreoE" campo="correoE">
+    <input id="correoE" formControlName="correoE" class="form-control" />
+  </app-campo-formulario>
+
+  <app-campo-formulario [formulario]="formulario" label="Telefono" campo="telefono">
+    <input id="telefono" formControlName="telefono" class="form-control" />
+  </app-campo-formulario>
+
+  <app-campo-formulario [formulario]="formulario" label="Direccion" campo="direccion">
+    <input id="direccion" formControlName="direccion" class="form-control" />
+  </app-campo-formulario>
+</form>
+
+<div class="text-center mt-4">
+  <button class="btn btn-primary me-1" (click)="guardar()">Guardar</button>
+  <button class="btn btn-danger me-1" data-bs-toggle="modal" data-bs-target="#confirmacionBaja">Baja</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmacionBaja" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmación de baja</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Está seguro de que quiere darse de baja?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success me-2" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="bajaUsuario()">Baja</button>
+      </div>
+    </div>
+  </div>
+</div>
