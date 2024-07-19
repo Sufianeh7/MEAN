@@ -20,7 +20,7 @@ export class CestaComponent {
   }
 
   public vaciar():void{
-    this.cesta.vaciarDetalle()
+    this.cesta.vaciar()
   }
 
 }

@@ -6,6 +6,7 @@ import { ServicioCesta } from '../../../modelo/servicios/servicioCesta';
 import { ServicioAutenticacion } from '../../../modelo/servicios/servicioAutenticacion';
 import { Usuario } from '../../../modelo/entidades/usuario';
 import { CampoFormularioComponent } from "../../common/campo-formulario/campo-formulario.component";
+import { ServicioOrdenesCompra } from '../../../modelo/servicios/servicioOrdenesCompra';
 
 @Component({
   selector: 'app-formulario-compra',
@@ -21,7 +22,7 @@ export class FormularioCompraComponent {
 
   constructor(
     private servicioCesta:ServicioCesta,
-    /*private servicioOrdenesCompra:ServicioOrdenesCompra,*/
+    private servicioOrdenesCompra:ServicioOrdenesCompra,
     private formBuilder:FormBuilder,
     private servicioAutenticacion: ServicioAutenticacion,
     private router:Router
@@ -64,19 +65,20 @@ export class FormularioCompraComponent {
     this.cesta.usuario              = this.usuario
 
     //llamadita
-    /*
+
     this.servicioOrdenesCompra.enviarOrdenCompra(this.cesta)
       .subscribe({
         next: () => {
           this.cesta.vaciar()
           //navegar
+          this.router.navigateByUrl("/tienda/catalogo")
         },
         error: (err) => {
           console.log(err)
           alert("ZASCA")
         }
       })
-    */
+
 
   }
 

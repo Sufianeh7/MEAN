@@ -113,7 +113,7 @@ export class Pedido {
         this.subjectCestaCambiada.next("Detalle eliminado")
     }
 
-    public vaciarDetalle():void{
+    public vaciar():void{
       this._detalles = []
       this.subjectCestaCambiada.next("Cesta vaciada");
       this.calcularTotal()

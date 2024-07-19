@@ -1,4 +1,5 @@
-import { Observable } from 'rxjs';
+import { ImagenesUtil } from './../../util/imagenesUtil';
+import { firstValueFrom, map, Observable } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { configuracion } from '../../util/configuracion';
@@ -13,6 +14,17 @@ export class ServicioProductos{
 
   public listarProductos():Observable<any>{
     return this.httpClient.get(configuracion.urlServicio + "/seguro/productos")
+  }
+
+  public getImagenProducto(imageUrl:string):Observable<any>{
+    return this.httpClient.get(configuracion.urlServicio+"/"+imageUrl, {responseType: 'blob'})
+      .pipe(
+        map( async (data:any) => {
+
+          return await firstValueFrom(ImagenesUtil.createImageFromBlob(data))
+
+          } )
+      )
   }
 
 }

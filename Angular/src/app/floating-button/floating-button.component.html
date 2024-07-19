@@ -1,0 +1,12 @@
+<!-- floating-button.component.html -->
+<!-- Botón de WhatsApp -->
+<button class="floating-button-wa" (click)="openWhatsApp()">
+  <i class="fa-brands fa-whatsapp"></i>
+</button>
+
+<!-- Flecha de subir -->
+@if (showButton) {
+  <button class="floating-button" (click)="scrollToTop()" aria-label="Scroll To Top">
+    <i class="fa fa-arrow-up"></i> <!-- Necesitarás FontAwesome o algún otro icono de flecha -->
+  </button>
+}

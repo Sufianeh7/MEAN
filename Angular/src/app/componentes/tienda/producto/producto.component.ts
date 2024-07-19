@@ -1,9 +1,10 @@
-import { Component, Input, input } from '@angular/core';
+import { configuracion } from './../../../util/configuracion';
+import { Component, Input, input, OnInit } from '@angular/core';
 import { Producto } from '../../../modelo/entidades/producto';
 import { RecortarTextoPipe } from '../../../pipes/recortarTextoPipe';
 import { ServicioCesta } from '../../../modelo/servicios/servicioCesta';
 import { Pedido } from '../../../modelo/entidades/pedido';
-import { DetallePedido } from '../../../modelo/entidades/detallePedido';
+import { ServicioProductos } from '../../../modelo/servicios/servicioProductos';
 
 @Component({
   selector: 'app-producto',
@@ -20,8 +21,15 @@ export class ProductoComponent {
   public producto!:Producto
   private cesta:Pedido
 
-  constructor(private servicioCesta:ServicioCesta){
+  constructor(private servicioCesta:ServicioCesta, private servicioProductos: ServicioProductos){
     this.cesta = this.servicioCesta.getCesta()
+/*
+    this.servicioProductos.getImagenProducto(this.producto.imagen)
+      .subscribe({
+        next: (data:any) => this.createImageFromBlob(data),
+        error: (error:any) => console.log(error)
+
+      }) */
   }
 
   public comprar():void{

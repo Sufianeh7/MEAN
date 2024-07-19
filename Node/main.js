@@ -33,6 +33,9 @@ function arrancarServidor(){
     app.use(usuariosRouter)
     app.use(productosRouter)
 
+    //Para las imágenes de los productos
+    app.use(express.static("./recursos"))
+
     app.disable("x-powered-by")
 
     let puerto = process.env["http.puerto"]
