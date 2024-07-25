@@ -14,7 +14,8 @@ let esquemaUsuario = new mongoose.Schema({
     direccion : String,
     telefono  : String,
     correoE   : String,
-    fechaAlta : String
+    fechaAlta : String,
+    estado    : String
 })
 
 exports.Usuario = mongoose.model('usuarios', esquemaUsuario)

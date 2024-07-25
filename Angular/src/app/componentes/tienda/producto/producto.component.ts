@@ -13,23 +13,29 @@ import { ServicioProductos } from '../../../modelo/servicios/servicioProductos';
   templateUrl: './producto.component.html',
   styleUrls: ['./producto.component.css']
 })
-export class ProductoComponent {
+export class ProductoComponent implements OnInit{
 
   //El componente padre proporciona el valor de los @Input
   //utilizando el selector del componente
   @Input()
   public producto!:Producto
+  public imagenProducto:any
   private cesta:Pedido
 
-  constructor(private servicioCesta:ServicioCesta, private servicioProductos: ServicioProductos){
+  constructor(
+    private servicioCesta:ServicioCesta, 
+    private servicioProductos: ServicioProductos
+  ){
     this.cesta = this.servicioCesta.getCesta()
-/*
+  }
+
+  ngOnInit(): void {
     this.servicioProductos.getImagenProducto(this.producto.imagen)
       .subscribe({
-        next: (data:any) => this.createImageFromBlob(data),
+        next: (imagen:any) => this.imagenProducto = imagen,
         error: (error:any) => console.log(error)
-
-      }) */
+        
+      })
   }
 
   public comprar():void{

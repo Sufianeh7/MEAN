@@ -2,10 +2,8 @@
 
   <div class="row">
     <div class="col-4">
-      <!--
-        <img [src]="imagenProducto" alt="Atiende" width="250px">
-      -->
-      <img class="card-img-top" src="https://picsum.photos/300/200?random={{detalle.producto._id}}" alt="Card image">
+      <img [src]="imagenProducto" [alt]="detalle.producto.nombre"  width="300">
+<!--       <img class="card-img-top" src="https://picsum.photos/300/200?random={{detalle.producto._id}}" alt="Card image"> -->
     </div>
 
     <div class="col-8">

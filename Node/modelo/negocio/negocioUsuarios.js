@@ -29,6 +29,15 @@ exports.buscarPorLogin = async function(login){
     }
 }
 
+exports.buscarPorId = async function(id){
+    try {
+        return await Usuario.findById(id)
+    } catch (error) {
+        console.log(error)
+        throw crearError(500, "Error con la base de datos al buscar el usuario")
+    }
+}
+
 exports.insertarUsuario = async function(usuario){
     try {
         //Validar los datos    
